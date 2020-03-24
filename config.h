@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 0;       /* snap pixel */
@@ -70,6 +72,12 @@ static const char *muttcmd[]          = { "st", "-n", "mutt", "-e", "mutt", NULL
 static const char *weechatcmd[]       = { "st", "-n", "weechat", "-e", "weechat", NULL };
 static const char *rangercmd[]        = { "st", "-n", "ranger", "-e", "ranger", NULL };
 static const char *mixercmd[]         = { "st", "-n", "alsamixer", "-e", "alsamixer", NULL };
+static const char *upvol[]            = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *downvol[]          = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *mutevol[]          = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *mutemic[]          = { "/usr/bin/pactl", "set-source-mute", "0", "toggle", NULL };
+static const char *upbright[]         = { "/usr/bin/xbacklight", "-inc", "10", NULL };
+static const char *downbright[]       = { "/usr/bin/xbacklight", "-dec", "10", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -79,6 +87,13 @@ static Key keys[] = {
     { MEH,                          XK_m,      spawn,          { .v = muttcmd } },
     { MEH,                          XK_r,      spawn,          { .v = rangercmd } },
     { MEH,                          XK_a,      spawn,          { .v = mixercmd } },
+
+	{ 0,                       XF86XK_AudioLowerVolume,      spawn,          { .v = downvol } },
+	{ 0,                       XF86XK_AudioRaiseVolume,      spawn,          { .v = upvol } },
+	{ 0,                       XF86XK_AudioMute,             spawn,          { .v = mutevol } },
+	{ 0,                       XF86XK_AudioMicMute,          spawn,          { .v = mutemic } },
+	{ 0,                       XF86XK_MonBrightnessUp,       spawn,          { .v = upbright } },
+	{ 0,                       XF86XK_MonBrightnessDown,     spawn,          { .v = downbright } },
 
 	{ MODKEY,                       XK_p,      spawn,          { .v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          { .v = termcmd } },
