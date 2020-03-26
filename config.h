@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#282828"; /* background color unfocused w
 static const char col_gray2[]       = "#282828"; /* border color unfocused windows and tags*/
 static const char col_gray3[]       = "#ebdbb2"; /* foreground color unfocused windows and tags*/
 static const char col_gray4[]       = "#1d2021"; /* foreground color focused windows and tags*/
-static const char col_cyan[]        = "#fabd2f"; /* border color focused windows and tags */
+static const char col_cyan[]        = "#d79921"; /* border color focused windows and tags */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
