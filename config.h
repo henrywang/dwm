@@ -78,6 +78,12 @@ static const char *mutevol[]          = { "/usr/bin/pactl", "set-sink-mute", "0"
 static const char *mutemic[]          = { "/usr/bin/pactl", "set-source-mute", "0", "toggle", NULL };
 static const char *upbright[]         = { "/usr/bin/xbacklight", "-inc", "10", NULL };
 static const char *downbright[]       = { "/usr/bin/xbacklight", "-dec", "10", NULL };
+static const char *poweroffcmd[]      = { "dmenu-prompt", "Shutdown me?", "systemctl poweroff", NULL };
+static const char *rebootcmd[]        = { "dmenu-prompt", "Reboot me?", "systemctl reboot", NULL };
+static const char *suspendcmd[]       = { "dmenu-prompt", "Suspend me?", "systemctl suspend", NULL };
+static const char *locknowcmd[]       = { "xautolock", "-locknow", "-nowlocker", "sxlock -f -*-clean-bold-*-*-*-16-*-*-*-*-*-*-*", NULL };
+static const char *disablelockcmd[]   = { "xautolock", "-disable", NULL };
+static const char *enablelockcmd[]    = { "xautolock", "-enable", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -94,6 +100,13 @@ static Key keys[] = {
 	{ 0,                       XF86XK_AudioMicMute,          spawn,          { .v = mutemic } },
 	{ 0,                       XF86XK_MonBrightnessUp,       spawn,          { .v = upbright } },
 	{ 0,                       XF86XK_MonBrightnessDown,     spawn,          { .v = downbright } },
+
+	{ MODKEY,                       XK_z,              spawn,         { .v = poweroffcmd } },
+	{ MODKEY,                       XK_x,              spawn,         { .v = rebootcmd } },
+	{ MODKEY,                       XK_s,              spawn,         { .v = suspendcmd } },
+	{ MODKEY|ShiftMask,             XK_l,              spawn,         { .v = locknowcmd } },
+	{ MODKEY|ShiftMask,             XK_d,              spawn,         { .v = disablelockcmd } },
+	{ MODKEY|ShiftMask,             XK_e,              spawn,         { .v = enablelockcmd } },
 
 	{ MODKEY,                       XK_p,      spawn,          { .v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          { .v = termcmd } },
