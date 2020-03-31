@@ -84,6 +84,7 @@ static const char *suspendcmd[]       = { "dmenu-prompt", "Suspend me?", "system
 static const char *locknowcmd[]       = { "xautolock", "-locknow", "-nowlocker", "sxlock -f -*-clean-bold-*-*-*-16-*-*-*-*-*-*-*", NULL };
 static const char *disablelockcmd[]   = { "xautolock", "-disable", NULL };
 static const char *enablelockcmd[]    = { "xautolock", "-enable", NULL };
+static const char *displaycmd[]       = { "displayselect", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -107,6 +108,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_l,              spawn,         { .v = locknowcmd } },
 	{ MODKEY|ShiftMask,             XK_d,              spawn,         { .v = disablelockcmd } },
 	{ MODKEY|ShiftMask,             XK_e,              spawn,         { .v = enablelockcmd } },
+	{ MODKEY|ShiftMask,             XK_p,              spawn,         { .v = displaycmd } },
 
 	{ MODKEY,                       XK_p,      spawn,          { .v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          { .v = termcmd } },
