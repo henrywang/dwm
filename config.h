@@ -53,6 +53,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define MEH ControlMask|ShiftMask|Mod1Mask
+#define FUNCKEY Mod4Mask|Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           { .ui = 1 << TAG } }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     { .ui = 1 << TAG } }, \
@@ -96,9 +97,13 @@ static Key keys[] = {
     { MEH,                          XK_a,      spawn,          { .v = mixercmd } },
 
 	{ 0,                       XF86XK_AudioLowerVolume,      spawn,          { .v = downvol } },
+	{ FUNCKEY,                 XK_minus,                     spawn,          { .v = downvol } },
 	{ 0,                       XF86XK_AudioRaiseVolume,      spawn,          { .v = upvol } },
+	{ FUNCKEY,                 XK_equal,                     spawn,          { .v = upvol } },
 	{ 0,                       XF86XK_AudioMute,             spawn,          { .v = mutevol } },
+	{ FUNCKEY,                 XK_m,                         spawn,          { .v = mutevol } },
 	{ 0,                       XF86XK_AudioMicMute,          spawn,          { .v = mutemic } },
+	{ FUNCKEY|ShiftMask,       XK_m,                         spawn,          { .v = mutemic } },
 	{ 0,                       XF86XK_MonBrightnessUp,       spawn,          { .v = upbright } },
 	{ 0,                       XF86XK_MonBrightnessDown,     spawn,          { .v = downbright } },
 
