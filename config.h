@@ -30,6 +30,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     iscentered     isfloating   monitor */
 	{ "st",       NULL,       "weechat",  1,            0,             0,           -1 },
+	{ "Telegram", NULL,       NULL,       1,            0,             0,           -1 },
 	{ "st",       NULL,       "mutt",     1 << 1,       0,             0,           -1 },
 	{ "st",       NULL,       "ranger",   1 << 2,       0,             0,           -1 },
 	{ "Gimp",     NULL,       NULL,       0,            0,             1,           -1 },
@@ -69,6 +70,7 @@ static const char *dmenucmd[]         = { "dmenu_run", "-i", "-m", dmenumon, "-f
 static const char *termcmd[]          = { "st", "-n", "zsh", "-e", "zsh", NULL };
 static const char *firefoxcmd[]       = { "firefox", NULL };
 static const char *chromiumcmd[]      = { "chromium", NULL };
+static const char *telegramcmd[]      = { "Telegram", NULL };
 static const char *muttcmd[]          = { "st", "-n", "mutt", "-e", "mutt", NULL };
 static const char *weechatcmd[]       = { "st", "-n", "weechat", "-e", "weechat", NULL };
 static const char *rangercmd[]        = { "st", "-n", "ranger", "-e", "ranger", NULL };
@@ -95,6 +97,7 @@ static Key keys[] = {
     { MEH,                          XK_m,      spawn,          { .v = muttcmd } },
     { MEH,                          XK_r,      spawn,          { .v = rangercmd } },
     { MEH,                          XK_a,      spawn,          { .v = mixercmd } },
+    { MEH,                          XK_t,      spawn,          { .v = telegramcmd } },
 
 	{ 0,                       XF86XK_AudioLowerVolume,      spawn,          { .v = downvol } },
 	{ FUNCKEY,                 XK_minus,                     spawn,          { .v = downvol } },
