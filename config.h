@@ -88,6 +88,7 @@ static const char *locknowcmd[]       = { "xautolock", "-locknow", "-nowlocker",
 static const char *disablelockcmd[]   = { "xautolock", "-disable", NULL };
 static const char *enablelockcmd[]    = { "xautolock", "-enable", NULL };
 static const char *displaycmd[]       = { "displayselect", NULL };
+static const char *vpncmd[]           = { "connect-vpn", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -117,6 +118,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,              spawn,         { .v = disablelockcmd } },
 	{ MODKEY|ShiftMask,             XK_e,              spawn,         { .v = enablelockcmd } },
 	{ MODKEY|ShiftMask,             XK_p,              spawn,         { .v = displaycmd } },
+	{ MODKEY,                       XK_v,              spawn,         { .v = vpncmd } },
 
 	{ MODKEY,                       XK_p,      spawn,          { .v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          { .v = termcmd } },
