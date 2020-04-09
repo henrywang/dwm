@@ -32,7 +32,6 @@ static const Rule rules[] = {
 	{ "st",       NULL,       "weechat",  1,            0,             0,           -1 },
 	{ "Telegram", NULL,       NULL,       1,            0,             0,           -1 },
 	{ "st",       NULL,       "mutt",     1 << 1,       0,             0,           -1 },
-	{ "st",       NULL,       "ranger",   1 << 2,       0,             0,           -1 },
 	{ "Gimp",     NULL,       NULL,       0,            0,             1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,             0,           -1 },
 	{ "Chromium", NULL,       NULL,       1 << 7,       0,             0,           -1 },
@@ -89,6 +88,7 @@ static const char *disablelockcmd[]   = { "xautolock", "-disable", NULL };
 static const char *enablelockcmd[]    = { "xautolock", "-enable", NULL };
 static const char *displaycmd[]       = { "displayselect", NULL };
 static const char *vpncmd[]           = { "connect-vpn", NULL };
+static const char *kinitcmd[]         = { "my_kinit", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -119,6 +119,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,              spawn,         { .v = enablelockcmd } },
 	{ MODKEY|ShiftMask,             XK_p,              spawn,         { .v = displaycmd } },
 	{ MODKEY,                       XK_v,              spawn,         { .v = vpncmd } },
+	{ MODKEY,                       XK_a,              spawn,         { .v = kinitcmd } },
 
 	{ MODKEY,                       XK_p,      spawn,          { .v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          { .v = termcmd } },
